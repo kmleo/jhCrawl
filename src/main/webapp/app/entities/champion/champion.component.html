@@ -1,0 +1,155 @@
+<div>
+    <h2 id="page-heading">
+        <span>Champions</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-champion" [routerLink]="['/champion/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span class="hidden-sm-down">
+            Create a new Champion
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="Query">
+
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon icon="search"></fa-icon>
+                    </button>
+
+                    <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+                        <fa-icon icon="trash-alt"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="champions?.length === 0">
+        <span>No champions found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="champions?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="name"><span>Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="faction"><span>Faction</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="rarity"><span>Rarity</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="affinity"><span>Affinity</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="role"><span>Role</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="rank"><span>Rank</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="viewPageUrl"><span>View Page Url</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fusion"><span>Fusion</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="equipmentA"><span>Equipment A</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="equipmentB"><span>Equipment B</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="equipmentStatPriorityA"><span>Equipment Stat Priority A</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="equipmentStatPriorityB"><span>Equipment Stat Priority B</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tier"><span>Tier</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="healthPoints"><span>Health Points</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="attack"><span>Attack</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="defense"><span>Defense</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="speed"><span>Speed</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="criticalRate"><span>Critical Rate</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="criticalDamage"><span>Critical Damage</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="resistance"><span>Resistance</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="accuracy"><span>Accuracy</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="campaignRating"><span>Campaign Rating</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="factionWarRating"><span>Faction War Rating</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="arenaOffenseRating"><span>Arena Offense Rating</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="arenaDefenseRating"><span>Arena Defense Rating</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="iceGolemRating"><span>Ice Golem Rating</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="spidersDenRating"><span>Spiders Den Rating</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="minotaursLabyrinthRating"><span>Minotaurs Labyrinth Rating</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dragonsLairRating"><span>Dragons Lair Rating</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fireKnightsCastleRating"><span>Fire Knights Castle Rating</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="voidKeepRating"><span>Void Keep Rating</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="spiritKeepRating"><span>Spirit Keep Rating</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="magicKeepRating"><span>Magic Keep Rating</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="forceKeepRating"><span>Force Keep Rating</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let champion of champions ;trackBy: trackId">
+                    <td><a [routerLink]="['/champion', champion.id, 'view']">{{ champion.id }}</a></td>
+                    <td>{{ champion.name }}</td>
+                    <td>{{ champion.faction }}</td>
+                    <td>{{ champion.rarity }}</td>
+                    <td>{{ champion.affinity }}</td>
+                    <td>{{ champion.role }}</td>
+                    <td>{{ champion.rank }}</td>
+                    <td>{{ champion.viewPageUrl }}</td>
+                    <td>{{ champion.fusion }}</td>
+                    <td>{{ champion.equipmentA }}</td>
+                    <td>{{ champion.equipmentB }}</td>
+                    <td>{{ champion.equipmentStatPriorityA }}</td>
+                    <td>{{ champion.equipmentStatPriorityB }}</td>
+                    <td>{{ champion.tier }}</td>
+                    <td>{{ champion.healthPoints }}</td>
+                    <td>{{ champion.attack }}</td>
+                    <td>{{ champion.defense }}</td>
+                    <td>{{ champion.speed }}</td>
+                    <td>{{ champion.criticalRate }}</td>
+                    <td>{{ champion.criticalDamage }}</td>
+                    <td>{{ champion.resistance }}</td>
+                    <td>{{ champion.accuracy }}</td>
+                    <td>{{ champion.campaignRating }}</td>
+                    <td>{{ champion.factionWarRating }}</td>
+                    <td>{{ champion.arenaOffenseRating }}</td>
+                    <td>{{ champion.arenaDefenseRating }}</td>
+                    <td>{{ champion.iceGolemRating }}</td>
+                    <td>{{ champion.spidersDenRating }}</td>
+                    <td>{{ champion.minotaursLabyrinthRating }}</td>
+                    <td>{{ champion.dragonsLairRating }}</td>
+                    <td>{{ champion.fireKnightsCastleRating }}</td>
+                    <td>{{ champion.voidKeepRating }}</td>
+                    <td>{{ champion.spiritKeepRating }}</td>
+                    <td>{{ champion.magicKeepRating }}</td>
+                    <td>{{ champion.forceKeepRating }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/champion', champion.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/champion', champion.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(champion)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="champions?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>
