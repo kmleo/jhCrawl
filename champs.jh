@@ -1,0 +1,42 @@
+entity Champion {
+
+    name String required,
+    faction String,
+    rarity String,
+    affinity String,
+    role String,
+    rank String,
+    viewPageUrl String,
+    fusion String,
+    equipmentA String,
+    equipmentB String,
+    equipmentStatPriorityA String,
+    equipmentStatPriorityB String,
+    tier Integer,
+    healthPoints Integer,
+    attack Integer,
+    defense Integer,
+    speed Integer,
+    criticalRate Integer,
+    criticalDamage Integer,
+    resistance Integer,
+    accuracy Integer,
+    campaignRating Integer,
+    factionWarRating Integer,
+    arenaOffenseRating Integer,
+arenaDefenseRating Integer,
+iceGolemRating Integer,
+spidersDenRating Integer,
+minotaursLabyrinthRating Integer,
+dragonsLairRating Integer,
+fireKnightsCastleRating Integer,
+voidKeepRating Integer,
+spiritKeepRating Integer,
+magicKeepRating Integer,
+forceKeepRating Integer
+}
+
+
+paginate Champion with pagination
+
+service Champion with serviceClass
