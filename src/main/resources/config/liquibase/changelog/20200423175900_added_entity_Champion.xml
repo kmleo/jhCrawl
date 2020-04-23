@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+        <property name="autoIncrement" value="true"/>
+
+    <!--
+        Added the entity Champion.
+    -->
+    <changeSet id="20200423175900-1" author="jhipster">
+        <createTable tableName="champion">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="faction" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="rarity" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="affinity" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="role" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="jhi_rank" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="view_page_url" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="fusion" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="equipment_a" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="equipment_b" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="equipment_stat_priority_a" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="equipment_stat_priority_b" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="tier" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="health_points" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="attack" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="defense" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="speed" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="critical_rate" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="critical_damage" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="resistance" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="accuracy" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="campaign_rating" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="faction_war_rating" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="arena_offense_rating" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="arena_defense_rating" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="ice_golem_rating" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="spiders_den_rating" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="minotaurs_labyrinth_rating" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="dragons_lair_rating" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="fire_knights_castle_rating" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="void_keep_rating" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="spirit_keep_rating" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="magic_keep_rating" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="force_keep_rating" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20200423175900-1-relations" author="jhipster">
+
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20200423175900-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/champion.csv"
+                  separator=";"
+                  tableName="champion">
+            <column name="id" type="numeric"/>
+            <column name="name" type="string"/>
+            <column name="faction" type="string"/>
+            <column name="rarity" type="string"/>
+            <column name="affinity" type="string"/>
+            <column name="role" type="string"/>
+            <column name="jhi_rank" type="string"/>
+            <column name="view_page_url" type="string"/>
+            <column name="fusion" type="string"/>
+            <column name="equipment_a" type="string"/>
+            <column name="equipment_b" type="string"/>
+            <column name="equipment_stat_priority_a" type="string"/>
+            <column name="equipment_stat_priority_b" type="string"/>
+            <column name="tier" type="numeric"/>
+            <column name="health_points" type="numeric"/>
+            <column name="attack" type="numeric"/>
+            <column name="defense" type="numeric"/>
+            <column name="speed" type="numeric"/>
+            <column name="critical_rate" type="numeric"/>
+            <column name="critical_damage" type="numeric"/>
+            <column name="resistance" type="numeric"/>
+            <column name="accuracy" type="numeric"/>
+            <column name="campaign_rating" type="numeric"/>
+            <column name="faction_war_rating" type="numeric"/>
+            <column name="arena_offense_rating" type="numeric"/>
+            <column name="arena_defense_rating" type="numeric"/>
+            <column name="ice_golem_rating" type="numeric"/>
+            <column name="spiders_den_rating" type="numeric"/>
+            <column name="minotaurs_labyrinth_rating" type="numeric"/>
+            <column name="dragons_lair_rating" type="numeric"/>
+            <column name="fire_knights_castle_rating" type="numeric"/>
+            <column name="void_keep_rating" type="numeric"/>
+            <column name="spirit_keep_rating" type="numeric"/>
+            <column name="magic_keep_rating" type="numeric"/>
+            <column name="force_keep_rating" type="numeric"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here, do not remove-->
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>
