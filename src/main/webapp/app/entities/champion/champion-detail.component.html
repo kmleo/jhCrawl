@@ -1,0 +1,162 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="champion">
+            <h2><span>Champion</span> {{ champion.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{ champion.name }}</span>
+                </dd>
+                <dt><span>Faction</span></dt>
+                <dd>
+                    <span>{{ champion.faction }}</span>
+                </dd>
+                <dt><span>Rarity</span></dt>
+                <dd>
+                    <span>{{ champion.rarity }}</span>
+                </dd>
+                <dt><span>Affinity</span></dt>
+                <dd>
+                    <span>{{ champion.affinity }}</span>
+                </dd>
+                <dt><span>Role</span></dt>
+                <dd>
+                    <span>{{ champion.role }}</span>
+                </dd>
+                <dt><span>Rank</span></dt>
+                <dd>
+                    <span>{{ champion.rank }}</span>
+                </dd>
+                <dt><span>View Page Url</span></dt>
+                <dd>
+                    <span>{{ champion.viewPageUrl }}</span>
+                </dd>
+                <dt><span>Fusion</span></dt>
+                <dd>
+                    <span>{{ champion.fusion }}</span>
+                </dd>
+                <dt><span>Equipment A</span></dt>
+                <dd>
+                    <span>{{ champion.equipmentA }}</span>
+                </dd>
+                <dt><span>Equipment B</span></dt>
+                <dd>
+                    <span>{{ champion.equipmentB }}</span>
+                </dd>
+                <dt><span>Equipment Stat Priority A</span></dt>
+                <dd>
+                    <span>{{ champion.equipmentStatPriorityA }}</span>
+                </dd>
+                <dt><span>Equipment Stat Priority B</span></dt>
+                <dd>
+                    <span>{{ champion.equipmentStatPriorityB }}</span>
+                </dd>
+                <dt><span>Tier</span></dt>
+                <dd>
+                    <span>{{ champion.tier }}</span>
+                </dd>
+                <dt><span>Health Points</span></dt>
+                <dd>
+                    <span>{{ champion.healthPoints }}</span>
+                </dd>
+                <dt><span>Attack</span></dt>
+                <dd>
+                    <span>{{ champion.attack }}</span>
+                </dd>
+                <dt><span>Defense</span></dt>
+                <dd>
+                    <span>{{ champion.defense }}</span>
+                </dd>
+                <dt><span>Speed</span></dt>
+                <dd>
+                    <span>{{ champion.speed }}</span>
+                </dd>
+                <dt><span>Critical Rate</span></dt>
+                <dd>
+                    <span>{{ champion.criticalRate }}</span>
+                </dd>
+                <dt><span>Critical Damage</span></dt>
+                <dd>
+                    <span>{{ champion.criticalDamage }}</span>
+                </dd>
+                <dt><span>Resistance</span></dt>
+                <dd>
+                    <span>{{ champion.resistance }}</span>
+                </dd>
+                <dt><span>Accuracy</span></dt>
+                <dd>
+                    <span>{{ champion.accuracy }}</span>
+                </dd>
+                <dt><span>Campaign Rating</span></dt>
+                <dd>
+                    <span>{{ champion.campaignRating }}</span>
+                </dd>
+                <dt><span>Faction War Rating</span></dt>
+                <dd>
+                    <span>{{ champion.factionWarRating }}</span>
+                </dd>
+                <dt><span>Arena Offense Rating</span></dt>
+                <dd>
+                    <span>{{ champion.arenaOffenseRating }}</span>
+                </dd>
+                <dt><span>Arena Defense Rating</span></dt>
+                <dd>
+                    <span>{{ champion.arenaDefenseRating }}</span>
+                </dd>
+                <dt><span>Ice Golem Rating</span></dt>
+                <dd>
+                    <span>{{ champion.iceGolemRating }}</span>
+                </dd>
+                <dt><span>Spiders Den Rating</span></dt>
+                <dd>
+                    <span>{{ champion.spidersDenRating }}</span>
+                </dd>
+                <dt><span>Minotaurs Labyrinth Rating</span></dt>
+                <dd>
+                    <span>{{ champion.minotaursLabyrinthRating }}</span>
+                </dd>
+                <dt><span>Dragons Lair Rating</span></dt>
+                <dd>
+                    <span>{{ champion.dragonsLairRating }}</span>
+                </dd>
+                <dt><span>Fire Knights Castle Rating</span></dt>
+                <dd>
+                    <span>{{ champion.fireKnightsCastleRating }}</span>
+                </dd>
+                <dt><span>Void Keep Rating</span></dt>
+                <dd>
+                    <span>{{ champion.voidKeepRating }}</span>
+                </dd>
+                <dt><span>Spirit Keep Rating</span></dt>
+                <dd>
+                    <span>{{ champion.spiritKeepRating }}</span>
+                </dd>
+                <dt><span>Magic Keep Rating</span></dt>
+                <dd>
+                    <span>{{ champion.magicKeepRating }}</span>
+                </dd>
+                <dt><span>Force Keep Rating</span></dt>
+                <dd>
+                    <span>{{ champion.forceKeepRating }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/champion', champion.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,236 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-champion-heading">Create or edit a Champion</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                    <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name')?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_faction">Faction</label>
+                    <input type="text" class="form-control" name="faction" id="field_faction"
+                           formControlName="faction"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_rarity">Rarity</label>
+                    <input type="text" class="form-control" name="rarity" id="field_rarity"
+                           formControlName="rarity"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_affinity">Affinity</label>
+                    <input type="text" class="form-control" name="affinity" id="field_affinity"
+                           formControlName="affinity"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_role">Role</label>
+                    <input type="text" class="form-control" name="role" id="field_role"
+                           formControlName="role"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_rank">Rank</label>
+                    <input type="text" class="form-control" name="rank" id="field_rank"
+                           formControlName="rank"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_viewPageUrl">View Page Url</label>
+                    <input type="text" class="form-control" name="viewPageUrl" id="field_viewPageUrl"
+                           formControlName="viewPageUrl"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_fusion">Fusion</label>
+                    <input type="text" class="form-control" name="fusion" id="field_fusion"
+                           formControlName="fusion"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_equipmentA">Equipment A</label>
+                    <input type="text" class="form-control" name="equipmentA" id="field_equipmentA"
+                           formControlName="equipmentA"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_equipmentB">Equipment B</label>
+                    <input type="text" class="form-control" name="equipmentB" id="field_equipmentB"
+                           formControlName="equipmentB"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_equipmentStatPriorityA">Equipment Stat Priority A</label>
+                    <input type="text" class="form-control" name="equipmentStatPriorityA" id="field_equipmentStatPriorityA"
+                           formControlName="equipmentStatPriorityA"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_equipmentStatPriorityB">Equipment Stat Priority B</label>
+                    <input type="text" class="form-control" name="equipmentStatPriorityB" id="field_equipmentStatPriorityB"
+                           formControlName="equipmentStatPriorityB"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tier">Tier</label>
+                    <input type="number" class="form-control" name="tier" id="field_tier"
+                           formControlName="tier"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_healthPoints">Health Points</label>
+                    <input type="number" class="form-control" name="healthPoints" id="field_healthPoints"
+                           formControlName="healthPoints"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_attack">Attack</label>
+                    <input type="number" class="form-control" name="attack" id="field_attack"
+                           formControlName="attack"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_defense">Defense</label>
+                    <input type="number" class="form-control" name="defense" id="field_defense"
+                           formControlName="defense"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_speed">Speed</label>
+                    <input type="number" class="form-control" name="speed" id="field_speed"
+                           formControlName="speed"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_criticalRate">Critical Rate</label>
+                    <input type="number" class="form-control" name="criticalRate" id="field_criticalRate"
+                           formControlName="criticalRate"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_criticalDamage">Critical Damage</label>
+                    <input type="number" class="form-control" name="criticalDamage" id="field_criticalDamage"
+                           formControlName="criticalDamage"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_resistance">Resistance</label>
+                    <input type="number" class="form-control" name="resistance" id="field_resistance"
+                           formControlName="resistance"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_accuracy">Accuracy</label>
+                    <input type="number" class="form-control" name="accuracy" id="field_accuracy"
+                           formControlName="accuracy"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_campaignRating">Campaign Rating</label>
+                    <input type="number" class="form-control" name="campaignRating" id="field_campaignRating"
+                           formControlName="campaignRating"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_factionWarRating">Faction War Rating</label>
+                    <input type="number" class="form-control" name="factionWarRating" id="field_factionWarRating"
+                           formControlName="factionWarRating"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_arenaOffenseRating">Arena Offense Rating</label>
+                    <input type="number" class="form-control" name="arenaOffenseRating" id="field_arenaOffenseRating"
+                           formControlName="arenaOffenseRating"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_arenaDefenseRating">Arena Defense Rating</label>
+                    <input type="number" class="form-control" name="arenaDefenseRating" id="field_arenaDefenseRating"
+                           formControlName="arenaDefenseRating"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_iceGolemRating">Ice Golem Rating</label>
+                    <input type="number" class="form-control" name="iceGolemRating" id="field_iceGolemRating"
+                           formControlName="iceGolemRating"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_spidersDenRating">Spiders Den Rating</label>
+                    <input type="number" class="form-control" name="spidersDenRating" id="field_spidersDenRating"
+                           formControlName="spidersDenRating"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_minotaursLabyrinthRating">Minotaurs Labyrinth Rating</label>
+                    <input type="number" class="form-control" name="minotaursLabyrinthRating" id="field_minotaursLabyrinthRating"
+                           formControlName="minotaursLabyrinthRating"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dragonsLairRating">Dragons Lair Rating</label>
+                    <input type="number" class="form-control" name="dragonsLairRating" id="field_dragonsLairRating"
+                           formControlName="dragonsLairRating"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_fireKnightsCastleRating">Fire Knights Castle Rating</label>
+                    <input type="number" class="form-control" name="fireKnightsCastleRating" id="field_fireKnightsCastleRating"
+                           formControlName="fireKnightsCastleRating"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_voidKeepRating">Void Keep Rating</label>
+                    <input type="number" class="form-control" name="voidKeepRating" id="field_voidKeepRating"
+                           formControlName="voidKeepRating"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_spiritKeepRating">Spirit Keep Rating</label>
+                    <input type="number" class="form-control" name="spiritKeepRating" id="field_spiritKeepRating"
+                           formControlName="spiritKeepRating"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_magicKeepRating">Magic Keep Rating</label>
+                    <input type="number" class="form-control" name="magicKeepRating" id="field_magicKeepRating"
+                           formControlName="magicKeepRating"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_forceKeepRating">Force Keep Rating</label>
+                    <input type="number" class="form-control" name="forceKeepRating" id="field_forceKeepRating"
+                           formControlName="forceKeepRating"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

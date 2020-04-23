@@ -1,0 +1,156 @@
+{
+    "name": "Champion",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "faction",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "rarity",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "affinity",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "role",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "rank",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "viewPageUrl",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fusion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "equipmentA",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "equipmentB",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "equipmentStatPriorityA",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "equipmentStatPriorityB",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tier",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "healthPoints",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "attack",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "defense",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "speed",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "criticalRate",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "criticalDamage",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "resistance",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "accuracy",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "campaignRating",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "factionWarRating",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "arenaOffenseRating",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "arenaDefenseRating",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "iceGolemRating",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "spidersDenRating",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "minotaursLabyrinthRating",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dragonsLairRating",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "fireKnightsCastleRating",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "voidKeepRating",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "spiritKeepRating",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "magicKeepRating",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "forceKeepRating",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200423171800",
+    "entityTableName": "champion",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
